@@ -5,10 +5,16 @@ This repository contains R code, Stan models, and empirical data to reproduce th
 
 ## 1. System requirements
 
-- **Software dependencies:**
 	- R (>= 4.0.0)
 	- R packages: `cmdstanr`, `brms`, `tidyverse`, `bayestestR`, `loo`
 	- CmdStan (for `cmdstanr` backend)
+## 1. System requirements
+
+- **Software dependencies:**
+	- R (v4.3.1)
+	- R packages: `brms` (v2.22), `cmdstanr` (v0.8.1), `loo` (v2.8), `tidyverse`, `bayestestR`
+	- CmdStan (for `cmdstanr` backend)
+	- Stan models were run through the RStudio interface
 
 ## 2. Installation guide
 
@@ -22,7 +28,7 @@ This repository contains R code, Stan models, and empirical data to reproduce th
 	 - `brms`, `tidyverse`, `bayestestR`, `loo`
 4. Clone or download this repository and open the project in RStudio.
 
-**Typical install time:** 10-20 minutes (including CmdStan build)
+**Typical install time:** 10-15 minutes (including CmdStan build)
 
 ## 3. Instructions for use
 
