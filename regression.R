@@ -35,6 +35,30 @@ m_key_sample <-
     backend = "cmdstanr"
   )
 
+
+# Reanalysis of Feher Da Silva & Hare (2023) ------------------------------
+
+#get csv from repo of the original paper https://github.com/carolfs/fmri_magic_carpet/tree/main/code/analysis/beh_noslow.csv'
+
+df = df%>%
+  mutate(reward        = factor(reward, levels = c(0,1), labels = c("unrewarded", "rewarded")),
+         reward_oneback = lag(reward),
+         key1 = (choice1==isymbol_lft)*1, #1 for left, 0 for right
+         key2 = (choice2==fsymbol_lft)*1, #1 for left, 0 for right
+         stay_key2_to_1 = (lag(key2)==key1)*1)
+#only story condition
+df=df%>%filter(condition=='story')
+
+model<-brm(stay_key2_to_1 ~ reward_oneback + (reward_oneback | participant) , 
+           data   = df,
+           warmup = 2, #DEMO use 2000 for full fit
+           iter = 4, #DEMO use 4000 for full fit
+           cores  = 4,
+           chains = 4,
+           prior = myprior,
+           family = bernoulli("logit"),
+           backend='cmdstan')
+
 # Experiment 2 ------------------------------------------------------------
 df <- read.csv("data/Exp2/ready_for_brms_regression/df.csv")
 df$session=factor(df$session)
