@@ -36,7 +36,7 @@ m_key_sample <-
   )
 
 
-# Reanalysis of Feher Da Silva & Hare (2023) ------------------------------
+# Reanalysis of Feher Da Silva et al. (2023) ------------------------------
 
 #get csv from repo of the original paper https://github.com/carolfs/fmri_magic_carpet/tree/main/code/analysis/beh_noslow.csv'
 
