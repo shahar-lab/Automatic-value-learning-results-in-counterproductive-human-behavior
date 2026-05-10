@@ -1,51 +1,55 @@
+# Automatic value learning results in counterproductive human behavior
 
-# Automatic-value-learning-results-in-counterproductive-human-behavior
+This repository contains the code and data needed to reproduce the analyses and plots reported in the paper. It includes Stan models for computational model fitting, brms regression analyses, and model comparison with LOO-CV. Outputs are saved under each experiment's `output/` folder. All figures can be reproduced as PDF by running the scripts.
 
-This repository contains R code, Stan models, and empirical data to reproduce the regression and Bayesian analyses reported in "Automatic value learning results in counterproductive human behavior." It includes pipelines for brms regression analyses, model fitting with cmdstanr, and model comparison with loo.
+Preprint: https://osf.io/preprints/psyarxiv/73d5t_v3
 
-## 1. System requirements
+## Repository structure
 
-	- R (>= 4.0.0)
-	- R packages: `cmdstanr`, `brms`, `tidyverse`, `bayestestR`, `loo`
-	- CmdStan (for `cmdstanr` backend)
-## 1. System requirements
+Each experiment has its own folder (`Exp1`, `Exp2`, `Exp1_2_combined`, `Exp3`, `Exp4A`, `Exp4B`) with the following layout:
 
-- **Software dependencies:**
-	- R (v4.3.1)
-	- R packages: `brms` (v2.22), `cmdstanr` (v0.8.1), `loo` (v2.8), `tidyverse`, `bayestestR`
-	- CmdStan (for `cmdstanr` backend)
-	- Stan models were run through the RStudio interface
+```
+ExpN/
+├── Data/
+│   ├── Raw/
+│   ├── Filtered/
+│   └── Analysis/
+│       ├── standata/
+│       └── df/
+├── Code/
+│   ├── Preprocessing/
+│   ├── Computational_model/
+│   └── Regression/
+└── output/
+    ├── computational_model/
+    │   └── plots/
+    └── regression/
+        └── plots/
+```
 
-## 2. Installation guide
+## Requirements
 
-1. Install [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/).
-2. Install CmdStan using the `cmdstanr` package:
-	 ```r
-	 install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
-	 cmdstanr::install_cmdstan()
-	 ```
-3. Install required R packages (will be installed automatically if missing when running scripts):
-	 - `brms`, `tidyverse`, `bayestestR`, `loo`
-4. Clone or download this repository and open the project in RStudio.
+- R (v4.3.1)
+- CmdStan (via `cmdstanr`)
 
-**Typical install time:** 10-15 minutes (including CmdStan build)
+**R packages:**
 
-## 3. Instructions for use
+| Package | Version |
+|---|---|
+| brms | 2.22 |
+| cmdstanr | 0.8.1 |
+| loo | 2.8 |
+| tidyverse | 2.0 |
+| bayestestR | 0.15 |
+| ggdist | 3.3 |
+| tidybayes | 3.0 |
+| emmeans | 1.10 |
+| patchwork | 1.3 |
 
-To run a demo analysis on the provided data:
+## Reproducibility note
 
-1. Open the R scripts (`fit_stan.R`, `regression.R`, `model_comparison.R`) in RStudio.
-2. Run each script section by section, or source the entire script.
-3. Output files (model fits, regression results, LOO comparisons) will be saved in the `output/` folder.
+All scripts are self-contained and set to a reduced iteration count by default (`warmup = 2`, `iter = 4`) for demonstration purposes. Comments in each script indicate the values used for the reported analyses (`warmup = 2000`, `iter = 4000`). Full Stan model fits may take up to ~48 hours depending on hardware.
 
-**Expected output:**
-	- Stan model fit objects (`.rds` files)
-	- Brms regression fits
-	- Model comparison results (LOO)
+## Contact
 
-**Expected run time:**
-	- Demo settings (as in scripts): ~5 minutes per script
-	- Full analyses (increase `iter` and `warmup` as suggested): ~48 hours, depending on hardware
-
----
-For questions or issues, please contact Ido Ben-Artzi at idobenartzi@mail.tau.ac.il.
+For questions, contact Ido Ben-Artzi at idobenartzi@mail.tau.ac.il.
