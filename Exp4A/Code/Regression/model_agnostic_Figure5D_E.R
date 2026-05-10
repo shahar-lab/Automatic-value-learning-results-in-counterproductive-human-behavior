@@ -64,8 +64,14 @@ p_5d_cond <- plot(conditional_effects(fit_key), plot = FALSE)[[1]] +
 ggsave("Exp4A/output/regression/plots/figure5D_conditional.pdf",
        p_5d_cond, width = 4, height = 4)
 
-p_5d_post <- ggplot(as_draws_df(fit_key), aes(x = b_reward_oneback1, y = 0)) +
-  stat_halfeye(fill = "grey60", alpha = 0.7) +
+draws_5d <- as.numeric(as_draws_df(fit_key)$b_reward_oneback1)
+ci_5d_low  <- quantile(draws_5d, 0.025)
+ci_5d_high <- quantile(draws_5d, 0.975)
+p_5d_post <- ggplot(data.frame(x = draws_5d), aes(x = x)) +
+  geom_density(fill = "grey60", alpha = 0.7, color = NA) +
+  annotate("segment", x = ci_5d_low, xend = ci_5d_high, y = 0, yend = 0,
+           linewidth = 1) +
+  annotate("point", x = median(draws_5d), y = 0, size = 2) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   xlim(-1, 1) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
@@ -83,8 +89,14 @@ p_5e_cond <- plot(conditional_effects(fit_ch), plot = FALSE)[[1]] +
 ggsave("Exp4A/output/regression/plots/figure5E_conditional.pdf",
        p_5e_cond, width = 4, height = 4)
 
-p_5e_post <- ggplot(as_draws_df(fit_ch), aes(x = b_reward_oneback1, y = 0)) +
-  stat_halfeye(fill = "grey60", alpha = 0.7) +
+draws_5e <- as.numeric(as_draws_df(fit_ch)$b_reward_oneback1)
+ci_5e_low  <- quantile(draws_5e, 0.025)
+ci_5e_high <- quantile(draws_5e, 0.975)
+p_5e_post <- ggplot(data.frame(x = draws_5e), aes(x = x)) +
+  geom_density(fill = "grey60", alpha = 0.7, color = NA) +
+  annotate("segment", x = ci_5e_low, xend = ci_5e_high, y = 0, yend = 0,
+           linewidth = 1) +
+  annotate("point", x = median(draws_5e), y = 0, size = 2) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   xlim(-2, 2) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +

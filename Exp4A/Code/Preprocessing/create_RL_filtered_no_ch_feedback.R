@@ -1,10 +1,10 @@
 rm(list = ls())
-load(file="data/data_raw/no_choice_feedback/RL_raw.rdata")
+RL_raw_no_choice_feedback=read.csv(file="Exp4A/Data/Raw/RL_raw.csv")
 library(tidyverse)
 #filter
-filter_subject_id_data <- function(subject_id, data) {
+filter_subject_id_data <- function(subject, data) {
   df <- data %>%
-    filter(subject_id == !!subject_id) %>%
+    filter(subject == !!subject) %>%
     filter(rt > 300, rt < 4000,!is.na(ch_key),!is.na(ch_card),!is.na(reward))
   df <- df %>%
     mutate(
@@ -20,8 +20,8 @@ filter_subject_id_data <- function(subject_id, data) {
   return(df)
 }
 
-df <- unique(RL_raw_no_choice_feedback$subject_id) %>%
-  lapply(function(subject_id) filter_subject_id_data(subject_id, RL_raw_no_choice_feedback)) %>%
+df <- unique(RL_raw_no_choice_feedback$subject) %>%
+  lapply(function(subject) filter_subject_id_data(subject, RL_raw_no_choice_feedback)) %>%
   bind_rows()
 
 
@@ -30,7 +30,7 @@ df <- unique(RL_raw_no_choice_feedback$subject_id) %>%
 ntrials_before=RL_raw_no_choice_feedback%>%summarise(n())
 ntrials_after=df%>%summarise(n())
 1-ntrials_after/ntrials_before
-filter=df%>%group_by(subject_id)%>%summarise(exclude_trial_omission=mean(exclude_trial_omission),exclude_key_rep=mean(exclude_key_rep),exclude_inattention=mean(exclude_inattention))
+filter=df%>%group_by(subject)%>%summarise(exclude_trial_omission=mean(exclude_trial_omission),exclude_key_rep=mean(exclude_key_rep),exclude_inattention=mean(exclude_inattention))
 filter %>%
   summarise(
     n_trial_omission = sum(exclude_trial_omission == 1),
@@ -43,5 +43,5 @@ filter %>%
   )
 df=df%>%filter(exclude_trial_omission==0,exclude_key_rep==0,exclude_inattention == 0 | is.na(exclude_inattention)) #exclude subjects
 
-save(df,file="data/data_filtered/no_choice_feedback/RL.rdata")
-write.csv(df%>%select(-subject_id),file="data/data_filtered/no_choice_feedback/RL.csv")
+# save(df,file="data/data_filtered/no_choice_feedback/RL.rdata")
+# write.csv(df,file="data/data_filtered/no_choice_feedback/RL.csv")

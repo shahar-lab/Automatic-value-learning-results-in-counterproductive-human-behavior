@@ -97,5 +97,7 @@ RL_raw_visual <- do.call(rbind, lapply(files, process_RL)) %>%
   mutate(subject = as.numeric(factor(subject_id))) %>%
   select(-subject_id)%>%relocate(subject)
 
-write.csv(RL_raw_visual, file = "Exp3/Data/Raw/RL/RL_raw.csv", row.names = FALSE)
+# write.csv(RL_raw_visual, file = "Exp3/Data/Raw/RL/RL_raw.csv", row.names = FALSE)
+
+# subject_id (prolific_identifier) was removed from the saved CSV files
 

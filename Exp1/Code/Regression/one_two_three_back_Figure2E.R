@@ -88,10 +88,11 @@ draws_2 <- as_draws_df(m_2) %>% select(matches("^b_.*reward"))
 draws_3 <- as_draws_df(m_3) %>% select(matches("^b_.*reward"))
 
 get_stats <- function(x) {
+  x <- as.numeric(x)
   tibble(
     beta  = median(x),
-    lower = hdi(x, .95)$CI_low,
-    upper = hdi(x, .95)$CI_high
+    lower = quantile(x, 0.025),
+    upper = quantile(x, 0.975)
   )
 }
 

@@ -37,8 +37,8 @@ df_pop <- data.frame(
 )
 
 p_1d <- ggplot(df_pop, aes(x = plogis(value), fill = sample)) +
-  stat_halfeye(alpha = 0.6, position = "identity") +
-  labs(x = "Effect Size", y = "Density", fill = "Sample", color = "Sample") +
+  geom_density(alpha = 0.6, position = "identity", color = NA) +
+  labs(x = expression(lambda), y = NULL, fill = "Sample") +
   scale_fill_manual(values = c("abstract" = "#6F6E6F", "story" = "#81c784")) +
   scale_x_continuous(breaks = seq(0, 1.0, by = 0.1), limits = c(0, 1.0)) +
   theme_bw() +
@@ -65,7 +65,7 @@ df_lambdas <- tibble(
 
 p_abstract <- ggplot(df_lambdas %>% filter(sample == "abstract"),
                      aes(x = lambda, y = 1)) +
-  geom_dots(side = "top", dotsize = 2, binwidth = 0.01, alpha = 0.9,
+  geom_dots(side = "top", dotsize = 1, binwidth = 0.01, alpha = 0.9,
             shape = 16, fill = "#6F6E6F", color = "#6F6E6F") +
   scale_x_continuous(breaks = seq(0, 1, by = 0.1), limits = c(0, 1)) +
   theme_classic() +
@@ -81,7 +81,7 @@ ggsave("Exp1/output/computational_model/plots/figure1D_lambda_abstract.pdf", p_a
 
 p_story <- ggplot(df_lambdas %>% filter(sample == "story"),
                   aes(x = lambda, y = 1)) +
-  geom_dots(side = "top", dotsize = 2, binwidth = 0.01, alpha = 0.9,
+  geom_dots(side = "top", dotsize = 1, binwidth = 0.01, alpha = 0.9,
             shape = 16, fill = "#207537", color = "#207537") +
   scale_x_continuous(breaks = seq(0, 1, by = 0.1), limits = c(0, 1)) +
   theme_classic() +

@@ -168,3 +168,5 @@ write.csv(df_raw%>%select(-subject_id),file="data/empirical_data/data_raw/RL_raw
 #filter current subjects
 # session3=unique(df_raw3%>%filter(end_time > ymd("2025-05-12"))%>%pull(subject_id))
 # write.csv(session3,file="data/empirical_data/data_raw/session3.csv")
+
+# subject_id (prolific_identifier) was removed from the saved CSV files

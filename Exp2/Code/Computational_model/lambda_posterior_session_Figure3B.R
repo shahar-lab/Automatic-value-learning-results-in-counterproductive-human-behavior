@@ -39,7 +39,7 @@ session_colors <- c(
 )
 
 p_3b <- ggplot(posterior_lambda, aes(x = plogis(value), fill = session, color = session)) +
-  stat_halfeye(alpha = 0.4, position = "identity", .width = 0.9) +
+  geom_density(alpha = 0.4, position = "identity") +
   scale_fill_manual(values  = session_colors) +
   scale_color_manual(values = session_colors) +
   scale_x_continuous(breaks = seq(0, 1, 0.1), limits = c(0, 1)) +

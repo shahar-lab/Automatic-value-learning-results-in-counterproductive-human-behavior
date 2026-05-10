@@ -74,11 +74,12 @@ process_wm <- function(file_path) {
 
 # -------------------------
 # Path to screening data
-input_dir <- "data/empirical_data/data_collected/screening"
+input_dir <- "data/empirical_data/data_collected/session4"
 
 files <- list.files(input_dir, pattern = "\\.csv$", full.names = TRUE)
 
-WM_raw <- map_dfr(files, process_wm)
+WM_raw <- map_dfr(files, process_wm)%>%
+  mutate(subject = as.numeric(factor(subject_id)))%>%relocate(subject) 
 
 # Save
 save(WM_raw, file = "data/empirical_data/data_raw/WM_raw.rdata")
@@ -86,3 +87,5 @@ write.csv(WM_raw %>% select(-subject_id),
           file = "data/empirical_data/data_raw/WM_raw.csv", row.names = FALSE)
 
 cat("Processed", length(files), "WM files.\n")
+
+# subject_id (prolific_identifier) was removed from the saved CSV files

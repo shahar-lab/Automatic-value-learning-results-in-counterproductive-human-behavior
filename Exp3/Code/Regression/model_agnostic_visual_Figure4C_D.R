@@ -67,8 +67,14 @@ ggsave("Exp3/output/regression/plots/figure4C_conditional.pdf",
 
 # Figure 4C — stay color: posterior slope ---------------------------------
 
-p_4c_post <- ggplot(as_draws_df(fit_card), aes(x = b_reward_oneback1, y = 0)) +
-  stat_halfeye(fill = "grey60", alpha = 0.7) +
+draws_4c <- as.numeric(as_draws_df(fit_card)$b_reward_oneback1)
+ci_4c_low  <- quantile(draws_4c, 0.025)
+ci_4c_high <- quantile(draws_4c, 0.975)
+p_4c_post <- ggplot(data.frame(x = draws_4c), aes(x = x)) +
+  geom_density(fill = "grey60", alpha = 0.7, color = NA) +
+  annotate("segment", x = ci_4c_low, xend = ci_4c_high, y = 0, yend = 0,
+           linewidth = 1) +
+  annotate("point", x = median(draws_4c), y = 0, size = 2) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   xlim(-1, 1) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
@@ -88,8 +94,14 @@ ggsave("Exp3/output/regression/plots/figure4D_conditional.pdf",
 
 # Figure 4D — stay location: posterior slope ------------------------------
 
-p_4d_post <- ggplot(as_draws_df(fit_key), aes(x = b_reward_oneback1, y = 0)) +
-  stat_halfeye(fill = "grey60", alpha = 0.7) +
+draws_4d <- as.numeric(as_draws_df(fit_key)$b_reward_oneback1)
+ci_4d_low  <- quantile(draws_4d, 0.025)
+ci_4d_high <- quantile(draws_4d, 0.975)
+p_4d_post <- ggplot(data.frame(x = draws_4d), aes(x = x)) +
+  geom_density(fill = "grey60", alpha = 0.7, color = NA) +
+  annotate("segment", x = ci_4d_low, xend = ci_4d_high, y = 0, yend = 0,
+           linewidth = 1) +
+  annotate("point", x = median(draws_4d), y = 0, size = 2) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   xlim(-2, 2) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +

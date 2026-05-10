@@ -81,4 +81,5 @@ save(RL_raw_no_choice_feedback,file="data/data_raw/no_choice_feedback/RL_raw.rda
 #save without subject_id in csv
 write.csv(RL_raw_no_choice_feedback%>%select(-subject_id),file="data/data_raw/no_choice_feedback/RL_raw.csv")
 
+# subject_id (prolific_identifier) was removed from the saved CSV files
 

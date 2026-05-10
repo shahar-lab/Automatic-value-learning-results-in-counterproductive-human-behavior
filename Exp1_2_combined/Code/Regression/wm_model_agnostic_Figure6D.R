@@ -21,8 +21,8 @@ m_key <-
     data    = df_combined %>% filter(reoffer_ch == FALSE, reoffer_unch == FALSE,
                                      trial != 1),
     family  = bernoulli(link = "logit"),
-    warmup  = 2000, #fast fit
-    iter    = 4000, #fast fit
+    warmup  = 2, #DEMO use 2000 for full fit
+    iter    = 4, #DEMO use 2000 for full fit
     chains  = 4,
     cores   = 4,
     prior   = myprior,

@@ -97,3 +97,5 @@ write.csv(RL_raw_story%>%select(-subject_id),file="data/data_raw/story/RL_raw.cs
 write.csv(RL_raw_abstract%>%select(-subject_id),file="data/data_raw/abstract/RL_raw.csv")
 write.csv(RL_raw%>%select(-subject_id),file="data/data_raw/RL_raw.csv")
 
+# subject_id (prolific_identifier) was removed from the saved CSV files
+

@@ -55,8 +55,14 @@ posterior_theme <- theme(
   axis.line.y  = element_blank()
 )
 
-p_s3c <- ggplot(as_draws_df(model), aes(x = b_reward_onebackrewarded, y = 0)) +
-  stat_halfeye(fill = "grey60", alpha = 0.7) +
+draws_s3c <- as.numeric(as_draws_df(model)$b_reward_onebackrewarded)
+ci_s3c_low  <- quantile(draws_s3c, 0.025)
+ci_s3c_high <- quantile(draws_s3c, 0.975)
+p_s3c <- ggplot(data.frame(x = draws_s3c), aes(x = x)) +
+  geom_density(fill = "grey60", alpha = 0.7, color = NA) +
+  annotate("segment", x = ci_s3c_low, xend = ci_s3c_high, y = 0, yend = 0,
+           linewidth = 1) +
+  annotate("point", x = median(draws_s3c), y = 0, size = 2) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   xlim(-0.5, 0.5) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +

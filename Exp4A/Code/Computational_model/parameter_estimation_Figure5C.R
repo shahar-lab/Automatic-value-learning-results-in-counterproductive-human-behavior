@@ -18,11 +18,12 @@ median(plogis(lambda))
 
 df <- data.frame(value = as.numeric(lambda))
 
-ci <- hdi(plogis(df$value), ci = 0.95)
+ci_low  <- quantile(plogis(df$value), 0.025)
+ci_high <- quantile(plogis(df$value), 0.975)
 
 p_5c <- ggplot(df, aes(x = plogis(value))) +
   geom_density(fill = "#6F6E6F", alpha = 0.7, color = NA) +
-  annotate("segment", x = ci$CI_low, xend = ci$CI_high, y = 0, yend = 0,
+  annotate("segment", x = ci_low, xend = ci_high, y = 0, yend = 0,
            linewidth = 1) +
   annotate("point", x = median(plogis(df$value)), y = 0, size = 2) +
   scale_x_continuous(breaks = seq(0, 1, 0.1), limits = c(0, 1)) +

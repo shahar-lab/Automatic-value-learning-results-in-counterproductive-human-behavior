@@ -95,9 +95,12 @@ files <- list.files("data/data_collected/visual_pavlovian", pattern = "\\.csv$",
 # Process each file and combine results into a dataframe
 RL_raw_visual_pavlovian <- do.call(rbind, lapply(files, process_RL))%>%
   mutate(subject = as.numeric(factor(subject_id)))%>%relocate(subject)
-save(RL_raw_visual_pavlovian,file="data/data_raw/visual_pavlovian/RL_raw.rdata")
 
+
+#save(RL_raw_visual_pavlovian,file="data/data_raw/visual_pavlovian/RL_raw.rdata")
 
 #save without subject_id in csv
-write.csv(RL_raw_visual_pavlovian%>%select(-subject_id),file="data/data_raw/visual_pavlovian/RL_raw.csv")
+#write.csv(RL_raw_visual_pavlovian%>%select(-subject_id),file="data/data_raw/visual_pavlovian/RL_raw.csv")
+
+# subject_id (prolific_identifier) was removed from the saved CSV files
 

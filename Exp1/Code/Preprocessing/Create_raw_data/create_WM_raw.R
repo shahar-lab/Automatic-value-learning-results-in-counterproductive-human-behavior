@@ -76,3 +76,5 @@ WM_raw <- rbind(WM_raw_story, WM_raw_abstract) %>%
 
 save(WM_raw,file="data/data_raw/WM_raw.rdata")
 write.csv(WM_raw%>%select(-subject_id),file="data/data_raw/WM_raw.csv")
+
+# subject_id (prolific_identifier) was removed from the saved CSV files

@@ -45,9 +45,13 @@ describe_posterior(post$ICC)
 
 # Figure 6A ---------------------------------------------------------------
 
+ci_6a_low  <- quantile(post$ICC, 0.025)
+ci_6a_high <- quantile(post$ICC, 0.975)
 p_6a <- ggplot(post, aes(x = ICC)) +
-  stat_halfeye(fill = "grey60", color = "black", .width = 0.95,
-               point_interval = median_hdi) +
+  geom_density(fill = "grey60", alpha = 0.7, color = NA) +
+  annotate("segment", x = ci_6a_low, xend = ci_6a_high, y = 0, yend = 0,
+           linewidth = 1) +
+  annotate("point", x = median(post$ICC), y = 0, size = 2) +
   scale_x_continuous(
     breaks = c(0, 0.25, 0.5, 0.75, 1),
     limits = c(0, 1)
