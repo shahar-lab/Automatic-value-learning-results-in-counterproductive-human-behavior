@@ -17,6 +17,7 @@ Task code for all experiments is hosted on the Shahar Lab GitLab (Pavlovia).
 | Session 1 | https://gitlab.pavlovia.org/Shahar_Lab/training_sto1_fixed |
 | Session 2 | https://gitlab.pavlovia.org/Shahar_Lab/training_sto2_fixed |
 | Session 3 | https://gitlab.pavlovia.org/Shahar_Lab/training_sto3_fixed |
+| Session 4 (WM) | https://gitlab.pavlovia.org/Shahar_Lab/training_sto4_fixed |
 
 ## Experiment 3
 
