@@ -6,8 +6,8 @@ Task code for all experiments is hosted on the Shahar Lab GitLab (Pavlovia).
 
 | Task | Link |
 |---|---|
-| RL task — abstract condition | https://gitlab.pavlovia.org/Shahar_Lab/task_i1_control |
-| RL task — story condition | https://gitlab.pavlovia.org/Shahar_Lab/task_i1 |
+| RL task - abstract condition | https://gitlab.pavlovia.org/Shahar_Lab/task_i1_control |
+| RL task - story condition | https://gitlab.pavlovia.org/Shahar_Lab/task_i1 |
 | Working memory task | https://gitlab.pavlovia.org/Shahar_Lab/task_i_s2_con |
 
 ## Experiment 2
