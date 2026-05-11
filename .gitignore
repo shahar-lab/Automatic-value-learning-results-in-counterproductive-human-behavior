@@ -2,3 +2,12 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Stan compiled executables
+*.exe
+
+# Output files (model fits and figures) — kept as placeholders via .gitkeep
+*.rds
+*.Rdata
+*.rdata
+*.pdf

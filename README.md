@@ -11,16 +11,16 @@ Each experiment has its own folder (`Exp1`, `Exp2`, `Exp1_2_combined`, `Exp3`, `
 ```
 ExpN/
 ├── Data/
-│   ├── Raw/
-│   ├── Filtered/
-│   └── Analysis/
-│       ├── standata/
-│       └── df/
+│   ├── Raw/           # Initial data extracted from task output files
+│   ├── Filtered/      # Data after excluding trials and subjects per preregistered criteria
+│   └── Analysis/      # Integrated dataset with WM capacity (where applicable) and estimated model parameters
+│       ├── standata/  # Data formatted as JSON for Stan model fitting
+│       └── df/        # Trial-level data as CSV, ready for regression analyses
 ├── Code/
-│   ├── Preprocessing/
-│   ├── Computational_model/
-│   └── Regression/
-└── output/
+│   ├── Preprocessing/        # Scripts to produce Raw and Filtered data from task output
+│   ├── Computational_model/  # Stan model files, fitting scripts, model comparison, and parameter estimation
+│   └── Regression/           # Brms regression scripts producing all regression figures
+└── Output/                   # Placeholder directories, for when scripts are run
     ├── computational_model/
     │   └── plots/
     └── regression/
@@ -52,4 +52,4 @@ All scripts are self-contained and set to a reduced iteration count by default (
 
 ## Contact
 
-For questions, contact Ido Ben-Artzi at idobenartzi@mail.tau.ac.il.
+For questions, contact me (Ido Ben-Artzi) at idobenartzi@mail.tau.ac.il.
