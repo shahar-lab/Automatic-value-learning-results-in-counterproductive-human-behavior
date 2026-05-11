@@ -1,10 +1,10 @@
-
+﻿
 rm(list = ls())
 library(cmdstanr)
 library(bayestestR)
 library(ggplot2)
 
-fit <- readRDS("Exp4B/output/computational_model/modelfit_empirical_exp4B.rds")
+fit <- readRDS("Exp4B/Output/computational_model/modelfit_empirical_exp4B.rds")
 
 # Extract posterior draws -------------------------------------------------
 
@@ -36,5 +36,5 @@ p_5d <- ggplot(df, aes(x = plogis(value))) +
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
   )
-ggsave("Exp4B/output/computational_model/plots/figure5D.pdf",
+ggsave("Exp4B/Output/computational_model/plots/figure5D.pdf",
        p_5d, width = 6, height = 4)

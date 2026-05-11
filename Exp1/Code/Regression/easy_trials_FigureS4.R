@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -28,7 +28,7 @@ fit_ev <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_ev, "Exp1/output/regression/fit_ev.rds")
+saveRDS(fit_ev, "Exp1/Output/regression/fit_ev.rds")
 
 fit_q <-
   brm(
@@ -42,7 +42,7 @@ fit_q <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_q, "Exp1/output/regression/fit_q.rds")
+saveRDS(fit_q, "Exp1/Output/regression/fit_q.rds")
 
 # Figure S4 ---------------------------------------------------------------
 
@@ -62,5 +62,5 @@ p_b <- make_panel(fit_q,  expression("|ΔQ"[color]*"| > 0.3"))
 
 p_s4 <- cowplot::plot_grid(p_a, p_b, labels = c("A", "B"), nrow = 1)
 
-ggsave("Exp1/output/regression/plots/figureS4_easy_trials.pdf",
+ggsave("Exp1/Output/regression/plots/figureS4_easy_trials.pdf",
        p_s4, width = 8, height = 4)

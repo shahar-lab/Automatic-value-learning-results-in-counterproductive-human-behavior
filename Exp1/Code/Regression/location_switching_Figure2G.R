@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -42,7 +42,7 @@ m_prev_reduced <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_prev_reduced, "Exp1/output/regression/m_prev_reduced.rds")
+saveRDS(m_prev_reduced, "Exp1/Output/regression/m_prev_reduced.rds")
 
 m_prev <-
   brm(
@@ -56,7 +56,7 @@ m_prev <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_prev, "Exp1/output/regression/m_prev.rds")
+saveRDS(m_prev, "Exp1/Output/regression/m_prev.rds")
 
 # Figure 2G ---------------------------------------------------------------
 
@@ -104,4 +104,4 @@ p_2g <- ggplot() +
     color = "Previous outcome"
   ) +
   theme_bw()
-ggsave("Exp1/output/regression/plots/figure2G.pdf", p_2g, width = 5, height = 4)
+ggsave("Exp1/Output/regression/plots/figure2G.pdf", p_2g, width = 5, height = 4)

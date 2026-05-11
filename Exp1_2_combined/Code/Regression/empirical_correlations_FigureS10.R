@@ -1,4 +1,4 @@
-rm(list = ls())
+﻿rm(list = ls())
 library(tidyverse)
 library(corrplot)
 
@@ -35,7 +35,7 @@ col_labels <- expression(
 
 # Figure S10 --------------------------------------------------------------
 
-pdf("Exp1_2_combined/output/regression/plots/figureS10.pdf", width = 6, height = 5.5)
+pdf("Exp1_2_combined/Output/regression/plots/figureS10.pdf", width = 6, height = 5.5)
 corrplot(
   cor_mat,
   method      = "color",

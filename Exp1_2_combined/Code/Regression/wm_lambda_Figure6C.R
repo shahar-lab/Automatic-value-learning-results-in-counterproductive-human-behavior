@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -39,7 +39,7 @@ m_lambda_wm <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_lambda_wm, "Exp1_2_combined/output/regression/m_lambda_wm.rds")
+saveRDS(m_lambda_wm, "Exp1_2_combined/Output/regression/m_lambda_wm.rds")
 
 # Figure 6C ---------------------------------------------------------------
 
@@ -56,4 +56,4 @@ p_6c <- ggplot(df_subject, aes(x = avg_capacity, y = lambda)) +
     shape = "Experiment"
   ) +
   theme_bw()
-ggsave("Exp1_2_combined/output/regression/plots/figure6C.pdf", p_6c, width = 5, height = 4)
+ggsave("Exp1_2_combined/Output/regression/plots/figure6C.pdf", p_6c, width = 5, height = 4)

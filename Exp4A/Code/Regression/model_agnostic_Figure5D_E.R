@@ -1,4 +1,5 @@
-
+﻿#The panel letters in Figure 5 were mixed.
+#the model-agnostic results should be E-F for Exp4A and G-H for Exp4B. 
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -31,7 +32,7 @@ fit_ch <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_ch, "Exp4A/output/regression/fit_ch.rds")
+saveRDS(fit_ch, "Exp4A/Output/regression/fit_ch.rds")
 
 fit_key <-
   brm(
@@ -46,7 +47,7 @@ fit_key <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_key, "Exp4A/output/regression/fit_key.rds")
+saveRDS(fit_key, "Exp4A/Output/regression/fit_key.rds")
 
 posterior_theme <- theme(
   axis.title.y = element_blank(),
@@ -61,7 +62,7 @@ p_5d_cond <- plot(conditional_effects(fit_key), plot = FALSE)[[1]] +
   scale_x_discrete(labels = c("0" = "Unrewarded", "1" = "Rewarded")) +
   labs(x = "Previous outcome", y = "P(stay location)") +
   theme_bw()
-ggsave("Exp4A/output/regression/plots/figure5D_conditional.pdf",
+ggsave("Exp4A/Output/regression/plots/figure5D_conditional.pdf",
        p_5d_cond, width = 4, height = 4)
 
 draws_5d <- as.numeric(as_draws_df(fit_key)$b_reward_oneback1)
@@ -77,7 +78,7 @@ p_5d_post <- ggplot(data.frame(x = draws_5d), aes(x = x)) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
   theme_bw() +
   posterior_theme
-ggsave("Exp4A/output/regression/plots/figure5D_posterior.pdf",
+ggsave("Exp4A/Output/regression/plots/figure5D_posterior.pdf",
        p_5d_post, width = 5, height = 4)
 
 # Figure 5E — stay card ---------------------------------------------------
@@ -86,7 +87,7 @@ p_5e_cond <- plot(conditional_effects(fit_ch), plot = FALSE)[[1]] +
   scale_x_discrete(labels = c("0" = "Unrewarded", "1" = "Rewarded")) +
   labs(x = "Previous outcome", y = "P(stay card)") +
   theme_bw()
-ggsave("Exp4A/output/regression/plots/figure5E_conditional.pdf",
+ggsave("Exp4A/Output/regression/plots/figure5E_conditional.pdf",
        p_5e_cond, width = 4, height = 4)
 
 draws_5e <- as.numeric(as_draws_df(fit_ch)$b_reward_oneback1)
@@ -102,5 +103,5 @@ p_5e_post <- ggplot(data.frame(x = draws_5e), aes(x = x)) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
   theme_bw() +
   posterior_theme
-ggsave("Exp4A/output/regression/plots/figure5E_posterior.pdf",
+ggsave("Exp4A/Output/regression/plots/figure5E_posterior.pdf",
        p_5e_post, width = 5, height = 4)

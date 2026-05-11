@@ -149,10 +149,10 @@ panel_B <- wrap_plots(scatter_plots, nrow = 2)
 
 # Combined figure ---------------------------------------------------------
 
-fig5 <- (panel_A / panel_B) +
+fig8 <- (panel_A / panel_B) +
   plot_annotation(tag_levels = "A")
 
-ggsave("Simulation/Output/parameter_recovery/plots/figure5_parameter_recovery.pdf",
-       fig5, width = 12, height = 8)
+ggsave("Simulation/Output/parameter_recovery/plots/figure8_parameter_recovery.pdf",
+       fig8, width = 12, height = 8)
 
-fig5
+fig8

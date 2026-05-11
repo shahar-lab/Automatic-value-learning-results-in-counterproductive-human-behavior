@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(cmdstanr)
 library(bayestestR)
@@ -8,8 +8,8 @@ library(tidyverse)
 
 # Load fits ---------------------------------------------------------------
 
-fit_story    <- readRDS("Exp1/output/computational_model/modelfit_empirical_story_full.rds")
-fit_abstract <- readRDS("Exp1/output/computational_model/modelfit_empirical_abstract_full.rds")
+fit_story    <- readRDS("Exp1/Output/computational_model/modelfit_empirical_story_full.rds")
+fit_abstract <- readRDS("Exp1/Output/computational_model/modelfit_empirical_abstract_full.rds")
 
 # Population-level --------------------------------------------------------
 
@@ -26,7 +26,7 @@ lambda_sbj_abstract <- colMeans(fit_abstract$draws(variables = "lambda_sbj", for
 
 save(lambda_story, lambda_abstract,
      lambda_sbj_story, lambda_sbj_abstract,
-     file = "Exp1/output/computational_model/parameters.RData")
+     file = "Exp1/Output/computational_model/parameters.RData")
 
 # Figure 1D — population-level posteriors ---------------------------------
 
@@ -50,7 +50,7 @@ p_1d <- ggplot(df_pop, aes(x = plogis(value), fill = sample)) +
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
   )
-ggsave("Exp1/output/computational_model/plots/figure1D_population.pdf", p_1d, width = 6, height = 4)
+ggsave("Exp1/Output/computational_model/plots/figure1D_population.pdf", p_1d, width = 6, height = 4)
 
 # Individual-level dot plots ----------------------------------------------
 
@@ -77,7 +77,7 @@ p_abstract <- ggplot(df_lambdas %>% filter(sample == "abstract"),
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
   )
-ggsave("Exp1/output/computational_model/plots/figure1D_lambda_abstract.pdf", p_abstract, width = 6, height = 3)
+ggsave("Exp1/Output/computational_model/plots/figure1D_lambda_abstract.pdf", p_abstract, width = 6, height = 3)
 
 p_story <- ggplot(df_lambdas %>% filter(sample == "story"),
                   aes(x = lambda, y = 1)) +
@@ -93,4 +93,4 @@ p_story <- ggplot(df_lambdas %>% filter(sample == "story"),
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
   )
-ggsave("Exp1/output/computational_model/plots/figure1D_lambda_story.pdf", p_story, width = 6, height = 3)
+ggsave("Exp1/Output/computational_model/plots/figure1D_lambda_story.pdf", p_story, width = 6, height = 3)

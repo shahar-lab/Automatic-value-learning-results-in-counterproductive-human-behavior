@@ -8,7 +8,7 @@ library(ggplot2)
 
 # Load data ---------------------------------------------------------------
 
-load("D:/sync/Sync/Ido_Ben_Artzi/R/oil_framing_effect/data/stanmodel_two_trial_back_alpha1/artificial_data.Rdata")
+load("Simulation/Data/Learning_rate_1/artificial_data.Rdata")
 
 df <- df %>%
   arrange(subject, block, trial) %>%
@@ -47,7 +47,7 @@ m_1 <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_1, "Simulation/output/two_three_back/m_1.rds")
+saveRDS(m_1, "Simulation/Output/Learning_rate_1/m_1.rds")
 
 m_2 <-
   brm(
@@ -61,7 +61,7 @@ m_2 <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_2, "Simulation/output/two_three_back/m_2.rds")
+saveRDS(m_2, "Simulation/Output/Learning_rate_1/m_2.rds")
 
 m_3 <-
   brm(
@@ -75,7 +75,7 @@ m_3 <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_3, "Simulation/output/two_three_back/m_3.rds")
+saveRDS(m_3, "Simulation/Output/Learning_rate_1/m_3.rds")
 
 # Figure S2 ---------------------------------------------------------------
 
@@ -111,6 +111,6 @@ p_s2 <- ggplot(df_plot, aes(x = lag, y = beta)) +
   theme_bw() +
   theme(axis.title.y = element_text(size = 13))
 
-ggsave("Simulation/output/two_three_back/plots/figureS2.pdf", p_s2, width = 5, height = 4)
+ggsave("Simulation/Output/Learning_rate_1/plots/figureS2.pdf", p_s2, width = 5, height = 4)
 
 p_s2

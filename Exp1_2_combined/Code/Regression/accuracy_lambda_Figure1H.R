@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -32,7 +32,7 @@ m_lambda_accuracy <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_lambda_accuracy, "Exp1_2_combined/output/regression/m_lambda_accuracy.rds")
+saveRDS(m_lambda_accuracy, "Exp1_2_combined/Output/regression/m_lambda_accuracy.rds")
 
 # Figure 1H ---------------------------------------------------------------
 
@@ -52,4 +52,4 @@ p_1h <- ggplot(lambda_accuracy,
     shape = "Experiment"
   ) +
   theme_bw()
-ggsave("Exp1_2_combined/output/regression/plots/figure1H.pdf", p_1h, width = 5, height = 4)
+ggsave("Exp1_2_combined/Output/regression/plots/figure1H.pdf", p_1h, width = 5, height = 4)

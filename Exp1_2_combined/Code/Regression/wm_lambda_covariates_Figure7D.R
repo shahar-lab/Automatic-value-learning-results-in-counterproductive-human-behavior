@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -33,7 +33,7 @@ m_lambda_wm_controlled <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_lambda_wm_controlled, "Exp1_2_combined/output/regression/m_lambda_wm_controlled.rds")
+saveRDS(m_lambda_wm_controlled, "Exp1_2_combined/Output/regression/m_lambda_wm_controlled.rds")
 
 # Figure 7D ---------------------------------------------------------------
 
@@ -45,4 +45,4 @@ p_7d <- plot(c_eff, plot = FALSE)[[1]] +
     y = "WM capacity "
   ) +
   theme_bw()
-ggsave("Exp1_2_combined/output/regression/plots/figure7D.pdf", p_7d, width = 5, height = 4)
+ggsave("Exp1_2_combined/Output/regression/plots/figure7D.pdf", p_7d, width = 5, height = 4)

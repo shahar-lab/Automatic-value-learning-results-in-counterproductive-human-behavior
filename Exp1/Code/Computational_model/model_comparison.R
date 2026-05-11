@@ -1,7 +1,7 @@
-
+﻿
 library(loo)
 
-compare_models <- function(sample = c("story", "abstract"), output_dir = "Exp1/output/computational_model") {
+compare_models <- function(sample = c("story", "abstract"), output_dir = "Exp1/Output/computational_model") {
   sample <- match.arg(sample)
   fit_full    <- readRDS(file.path(output_dir, paste0("modelfit_empirical_", sample, "_full.rds")))
   fit_reduced <- readRDS(file.path(output_dir, paste0("modelfit_empirical_", sample, "_reduced.rds")))

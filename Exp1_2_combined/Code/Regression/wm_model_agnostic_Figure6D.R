@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -29,7 +29,7 @@ m_key <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_key, "Exp1_2_combined/output/regression/m_key.rds")
+saveRDS(m_key, "Exp1_2_combined/Output/regression/m_key.rds")
 
 # Extract subject-level coefficients --------------------------------------
 capacity1 <- df_combined %>%filter(experiment=="Experiment 1")%>%
@@ -91,7 +91,7 @@ model_scaled <- brm(
   backend = "cmdstanr"
 )
 
-saveRDS(model_scaled, "Exp1_2_combined/output/regression/m_key_capacity.rds")
+saveRDS(model_scaled, "Exp1_2_combined/Output/regression/m_key_capacity.rds")
 
 # Figure 6D ---------------------------------------------------------------
 
@@ -108,4 +108,4 @@ p_6d <- ggplot(coef_all, aes(x = avg_capacity, y = coefs)) +
     shape = "Experiment"
   ) +
   theme_bw()
-ggsave("Exp1_2_combined/output/regression/plots/figure6D.pdf", p_6d, width = 5, height = 4)
+ggsave("Exp1_2_combined/Output/regression/plots/figure6D.pdf", p_6d, width = 5, height = 4)

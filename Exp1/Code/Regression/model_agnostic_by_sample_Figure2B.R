@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -26,7 +26,7 @@ m_key_sample <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_key_sample, "Exp1/output/regression/m_key_sample.rds")
+saveRDS(m_key_sample, "Exp1/Output/regression/m_key_sample.rds")
 
 # Figure 2B ---------------------------------------------------------------
 
@@ -46,4 +46,4 @@ p_2b <- plot(effects, plot = FALSE)[[3]] +
     shape = "none",
     color = guide_legend(title = "Previous outcome")
   )
-ggsave("Exp1/output/regression/plots/figure2B.pdf", p_2b, width = 5, height = 4)
+ggsave("Exp1/Output/regression/plots/figure2B.pdf", p_2b, width = 5, height = 4)

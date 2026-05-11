@@ -1,11 +1,11 @@
-rm(list = ls())
+﻿rm(list = ls())
 library(cmdstanr)
 library(bayesplot)
 library(tidyverse)
 
 # Load fits ---------------------------------------------------------------
 
-fit_abstract_full <- readRDS("Exp1/output/computational_model/modelfit_empirical_abstract_full.rds")
+fit_abstract_full <- readRDS("Exp1/Output/computational_model/modelfit_empirical_abstract_full.rds")
 
 # Group-level parameters to plot ------------------------------------------
 
@@ -24,7 +24,7 @@ p_abstract <- mcmc_pairs(
   off_diag_args = list(size = 0.3, alpha = 0.3)
 )
 
-ggsave("Exp1/output/computational_model/plots/figureS9.pdf",
+ggsave("Exp1/Output/computational_model/plots/figureS9.pdf",
        p_abstract, width = 10, height = 10)
 
 p_abstract

@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -51,7 +51,7 @@ m_1 <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_1, "Exp1/output/regression/m_1.rds")
+saveRDS(m_1, "Exp1/Output/regression/m_1.rds")
 
 m_2 <-
   brm(
@@ -65,7 +65,7 @@ m_2 <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_2, "Exp1/output/regression/m_2.rds")
+saveRDS(m_2, "Exp1/Output/regression/m_2.rds")
 
 m_3 <-
   brm(
@@ -79,7 +79,7 @@ m_3 <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_3, "Exp1/output/regression/m_3.rds")
+saveRDS(m_3, "Exp1/Output/regression/m_3.rds")
 
 # Figure 2E ---------------------------------------------------------------
 
@@ -114,4 +114,4 @@ p_2e <- ggplot(df_plot, aes(x = lag, y = beta)) +
   ) +
   theme_bw() +
   theme(axis.title.y = element_text(size = 13))
-ggsave("Exp1/output/regression/plots/figure2E.pdf", p_2e, width = 5, height = 4)
+ggsave("Exp1/Output/regression/plots/figure2E.pdf", p_2e, width = 5, height = 4)

@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(cmdstanr)
 library(jsonlite)
@@ -17,7 +17,7 @@ run_stan <- function(sample = c("abstract", "story"),
   model_type <- match.arg(model_type)
   data_path   <- paste0("Exp1/Data/Analysis/standata/data_for_stan_", sample, ".json")
   model_path  <- paste0("Exp1/Code/Computational_model/Stan_models/", model_type, "_model.stan")
-  output_name <- paste0("Exp1/output/computational_model/modelfit_empirical_", sample, "_", model_type, ".rds")
+  output_name <- paste0("Exp1/Output/computational_model/modelfit_empirical_", sample, "_", model_type, ".rds")
   data_for_stan <- read_json(data_path, simplifyVector = TRUE)
   my_compiledmodel <- cmdstan_model(model_path)
   fit <- my_compiledmodel$sample(

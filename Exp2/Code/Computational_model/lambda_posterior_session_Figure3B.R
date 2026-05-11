@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(cmdstanr)
 library(tidyverse)
@@ -6,7 +6,7 @@ library(bayestestR)
 library(ggdist)
 library(ggplot2)
 
-fit <- readRDS("Exp2/output/computational_model/modelfit_empirical_exp2.rds")
+fit <- readRDS("Exp2/Output/computational_model/modelfit_empirical_exp2.rds")
 
 # Extract posterior draws -------------------------------------------------
 
@@ -53,4 +53,4 @@ p_3b <- ggplot(posterior_lambda, aes(x = plogis(value), fill = session, color = 
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
   )
-ggsave("Exp2/output/computational_model/plots/figure3B.pdf", p_3b, width = 6, height = 4)
+ggsave("Exp2/Output/computational_model/plots/figure3B.pdf", p_3b, width = 6, height = 4)

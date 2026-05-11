@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -8,7 +8,7 @@ library(ggplot2)
 
 myprior <- prior(normal(0, 1), class = b)
 
-# get csv from repo of the original paper:
+# get csv from repo of the original paper by downloading this file:
 # https://github.com/carolfs/fmri_magic_carpet/tree/main/code/analysis/beh_noslow.csv
 
 df <- read.csv("Reanalysis Feher Da Silva & Hare (2023)/data/beh_noslow.csv")
@@ -35,7 +35,7 @@ model <- brm(
   backend = "cmdstanr"
 )
 
-saveRDS(model, "Reanalysis Feher Da Silva & Hare (2023)/output/model.rds")
+saveRDS(model, "Reanalysis Feher Da Silva & Hare (2023)/Output/model.rds")
 
 # Figure S3B — conditional effects ----------------------------------------
 
@@ -43,7 +43,7 @@ p_s3b <- plot(conditional_effects(model), plot = FALSE)[[1]] +
   scale_x_discrete(labels = c("unrewarded" = "Unrewarded", "rewarded" = "Rewarded")) +
   labs(x = "Previous outcome", y = "P(Stay location 2 to 1)") +
   theme_bw()
-ggsave("Reanalysis Feher Da Silva & Hare (2023)/output/plots/figureS3B.pdf",
+ggsave("Reanalysis Feher Da Silva & Hare (2023)/Output/plots/figureS3B.pdf",
        p_s3b, width = 4, height = 4)
 
 # Figure S3C — posterior slope --------------------------------------------
@@ -68,5 +68,5 @@ p_s3c <- ggplot(data.frame(x = draws_s3c), aes(x = x)) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
   theme_bw() +
   posterior_theme
-ggsave("Reanalysis Feher Da Silva & Hare (2023)/output/plots/figureS3C.pdf",
+ggsave("Reanalysis Feher Da Silva & Hare (2023)/Output/plots/figureS3C.pdf",
        p_s3c, width = 5, height = 4)

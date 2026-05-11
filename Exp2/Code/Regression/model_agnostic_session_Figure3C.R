@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -20,7 +20,7 @@ m_oil_session <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_oil_session, "Exp2/output/regression/m_oil_session.rds")
+saveRDS(m_oil_session, "Exp2/Output/regression/m_oil_session.rds")
 
 # Figure 3C ---------------------------------------------------------------
 
@@ -51,4 +51,4 @@ p_3c <- ggplot(plot_data,
     color = "Session"
   ) +
   theme_bw()
-ggsave("Exp2/output/regression/plots/figure3C.pdf", p_3c, width = 5, height = 4)
+ggsave("Exp2/Output/regression/plots/figure3C.pdf", p_3c, width = 5, height = 4)

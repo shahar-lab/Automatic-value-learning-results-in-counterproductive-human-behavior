@@ -29,7 +29,7 @@ m_key <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_key, "Simulation/output/random_responding/signature/m_key.rds")
+saveRDS(m_key, "Simulation/Output/random_responding/signature/m_key.rds")
 
 # Figure 7A ---------------------------------------------------------------
 
@@ -42,6 +42,6 @@ p <- plot(c_eff, plot = FALSE)[[1]] +
   ) +
   ylab("P(stay_location)")
 
-ggsave("Simulation/output/random_responding/signature/plots/figure7A.pdf", p, width = 6, height = 4)
+ggsave("Simulation/Output/random_responding/signature/plots/figure7A.pdf", p, width = 6, height = 4)
 
 p

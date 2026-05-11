@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -34,7 +34,7 @@ m_cum_reward <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_cum_reward, "Exp1/output/regression/m_cum_reward.rds")
+saveRDS(m_cum_reward, "Exp1/Output/regression/m_cum_reward.rds")
 
 # Figure 2F ---------------------------------------------------------------
 
@@ -61,7 +61,7 @@ p_2f <- ggplot(df_plot, aes(x = cum_reward_diff, y = response, color = factor(la
     fill  = "λ"
   ) +
   theme_bw()
-ggsave("Exp1/output/regression/plots/figure2F.pdf", p_2f, width = 6, height = 4)
+ggsave("Exp1/Output/regression/plots/figure2F.pdf", p_2f, width = 6, height = 4)
 
 # Distribution of cum_reward_diff -----------------------------------------
 
@@ -76,4 +76,4 @@ p_2f_dist <- ggplot(df, aes(x = cum_reward_diff)) +
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
   )
-ggsave("Exp1/output/regression/plots/figure2F_distribution.pdf", p_2f_dist, width = 6, height = 3)
+ggsave("Exp1/Output/regression/plots/figure2F_distribution.pdf", p_2f_dist, width = 6, height = 3)

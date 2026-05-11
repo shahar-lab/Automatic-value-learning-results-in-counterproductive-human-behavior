@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(tidyverse)
 library(ggplot2)
@@ -33,5 +33,5 @@ p_card <- ggplot(df, aes(x = absQcard_diff)) +
     axis.ticks.y = element_blank()
   )
 
-ggsave("Exp1/output/regression/plots/figureS5_Qdiff_key.pdf",   p_key,  width = 5, height = 4)
-ggsave("Exp1/output/regression/plots/figureS5_Qdiff_card.pdf",  p_card, width = 5, height = 4)
+ggsave("Exp1/Output/regression/plots/figureS5_Qdiff_key.pdf",   p_key,  width = 5, height = 4)
+ggsave("Exp1/Output/regression/plots/figureS5_Qdiff_card.pdf",  p_card, width = 5, height = 4)

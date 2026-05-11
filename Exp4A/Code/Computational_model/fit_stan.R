@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(cmdstanr)
 library(jsonlite)
@@ -11,7 +11,7 @@ run_stan <- function(iter_sampling = 2, # DEMO use 2000 for full fit
                      parallel_chains = 4) {
   data_path   <- "Exp4A/Data/Analysis/data_for_stan.json"
   model_path  <- "Exp4A/Code/Computational_model/Stan_models/full_model.stan"
-  output_name <- "Exp4A/output/computational_model/modelfit_empirical_exp4A.rds"
+  output_name <- "Exp4A/Output/computational_model/modelfit_empirical_exp4A.rds"
   data_for_stan    <- read_json(data_path, simplifyVector = TRUE)
   my_compiledmodel <- cmdstan_model(model_path)
   fit <- my_compiledmodel$sample(

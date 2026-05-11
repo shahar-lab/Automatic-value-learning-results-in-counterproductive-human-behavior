@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -40,7 +40,7 @@ m_lambda_diff <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_lambda_diff, "Exp1_2_combined/output/regression/m_lambda_stay_diff.rds")
+saveRDS(m_lambda_diff, "Exp1_2_combined/Output/regression/m_lambda_stay_diff.rds")
 
 # Figure 2D ---------------------------------------------------------------
 
@@ -59,4 +59,4 @@ p_2d <- ggplot(df_summary, aes(x = lambda, y = diff_prob)) +
     shape = "Experiment"
   ) +
   theme_bw()
-ggsave("Exp1_2_combined/output/regression/plots/figure2D.pdf", p_2d, width = 5, height = 4)
+ggsave("Exp1_2_combined/Output/regression/plots/figure2D.pdf", p_2d, width = 5, height = 4)

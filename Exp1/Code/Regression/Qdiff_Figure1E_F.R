@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -24,7 +24,7 @@ m_qcard <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_qcard, "Exp1/output/regression/m_qcard.rds")
+saveRDS(m_qcard, "Exp1/Output/regression/m_qcard.rds")
 
 m_qkey <-
   brm(
@@ -39,7 +39,7 @@ m_qkey <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_qkey, "Exp1/output/regression/m_qkey.rds")
+saveRDS(m_qkey, "Exp1/Output/regression/m_qkey.rds")
 
 lambda_colors <- c("0.95" = "#F8766D", "0.8" = "#00BA38", "0.65" = "#619CFF")
 
@@ -67,7 +67,7 @@ p_1e <- ggplot(newdata_qcard,
   scale_fill_manual(values = lambda_colors) +
   labs(x = "Qcard_diff", y = "P(right key)", color = "λ", fill = "λ") +
   theme_bw()
-ggsave("Exp1/output/regression/plots/figure1E.pdf", p_1e, width = 6, height = 4)
+ggsave("Exp1/Output/regression/plots/figure1E.pdf", p_1e, width = 6, height = 4)
 
 # Figure 1F — Qkey_diff conditional effects -------------------------------
 
@@ -93,5 +93,5 @@ p_1f <- ggplot(newdata_qkey,
   scale_fill_manual(values = lambda_colors) +
   labs(x = "Qkey_diff", y = "P(right key)", color = "λ", fill = "λ") +
   theme_bw()
-ggsave("Exp1/output/regression/plots/figure1F.pdf", p_1f, width = 6, height = 4)
+ggsave("Exp1/Output/regression/plots/figure1F.pdf", p_1f, width = 6, height = 4)
 

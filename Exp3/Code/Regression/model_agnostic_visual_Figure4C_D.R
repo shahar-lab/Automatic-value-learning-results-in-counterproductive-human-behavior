@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -32,7 +32,7 @@ fit_card <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_card, "Exp3/output/regression/fit_card.rds")
+saveRDS(fit_card, "Exp3/Output/regression/fit_card.rds")
 
 fit_key <-
   brm(
@@ -47,7 +47,7 @@ fit_key <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_key, "Exp3/output/regression/fit_key.rds")
+saveRDS(fit_key, "Exp3/Output/regression/fit_key.rds")
 
 posterior_theme <- theme(
   axis.title.y = element_blank(),
@@ -62,7 +62,7 @@ p_4c_cond <- plot(conditional_effects(fit_card), plot = FALSE)[[1]] +
   scale_x_discrete(labels = c("0" = "Unrewarded", "1" = "Rewarded")) +
   labs(x = "Previous outcome", y = "P(stay color)") +
   theme_bw()
-ggsave("Exp3/output/regression/plots/figure4C_conditional.pdf",
+ggsave("Exp3/Output/regression/plots/figure4C_conditional.pdf",
        p_4c_cond, width = 4, height = 4)
 
 # Figure 4C — stay color: posterior slope ---------------------------------
@@ -80,7 +80,7 @@ p_4c_post <- ggplot(data.frame(x = draws_4c), aes(x = x)) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
   theme_bw() +
   posterior_theme
-ggsave("Exp3/output/regression/plots/figure4C_posterior.pdf",
+ggsave("Exp3/Output/regression/plots/figure4C_posterior.pdf",
        p_4c_post, width = 5, height = 4)
 
 # Figure 4D — stay location: conditional effects --------------------------
@@ -89,7 +89,7 @@ p_4d_cond <- plot(conditional_effects(fit_key), plot = FALSE)[[1]] +
   scale_x_discrete(labels = c("0" = "Unrewarded", "1" = "Rewarded")) +
   labs(x = "Previous outcome", y = "P(stay location)") +
   theme_bw()
-ggsave("Exp3/output/regression/plots/figure4D_conditional.pdf",
+ggsave("Exp3/Output/regression/plots/figure4D_conditional.pdf",
        p_4d_cond, width = 4, height = 4)
 
 # Figure 4D — stay location: posterior slope ------------------------------
@@ -107,5 +107,5 @@ p_4d_post <- ggplot(data.frame(x = draws_4d), aes(x = x)) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
   theme_bw() +
   posterior_theme
-ggsave("Exp3/output/regression/plots/figure4D_posterior.pdf",
+ggsave("Exp3/Output/regression/plots/figure4D_posterior.pdf",
        p_4d_post, width = 5, height = 4)

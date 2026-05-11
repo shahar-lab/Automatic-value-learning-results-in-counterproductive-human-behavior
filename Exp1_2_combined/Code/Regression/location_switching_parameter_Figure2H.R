@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -39,7 +39,7 @@ m_prev <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_prev, "Exp1_2_combined/output/regression/m_prev.rds")
+saveRDS(m_prev, "Exp1_2_combined/Output/regression/m_prev.rds")
 
 # Figure 2H ---------------------------------------------------------------
 
@@ -72,4 +72,4 @@ p_2h <- ggplot(compare_df,
     shape = "Experiment"
   ) +
   theme_bw()
-ggsave("Exp1_2_combined/output/regression/plots/figure2H.pdf", p_2h, width = 5, height = 4)
+ggsave("Exp1_2_combined/Output/regression/plots/figure2H.pdf", p_2h, width = 5, height = 4)

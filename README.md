@@ -45,6 +45,8 @@ ExpN/
 | tidybayes | 3.0 |
 | emmeans | 1.10 |
 | patchwork | 1.3 |
+| corrplot | 0.92 |
+| bayesplot | 1.11 |
 
 ## Reproducibility note
 

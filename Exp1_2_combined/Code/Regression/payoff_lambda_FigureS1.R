@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -29,7 +29,7 @@ m_payoff <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_payoff, "Exp1_2_combined/output/regression/m_payoff_lambda.rds")
+saveRDS(m_payoff, "Exp1_2_combined/Output/regression/m_payoff_lambda.rds")
 
 # Figure S1 ---------------------------------------------------------------
 
@@ -51,5 +51,5 @@ p_s1 <- ggplot(df_subject, aes(x = lambda, y = mean_reward, color = experiment))
     text            = element_text(size = 12)
   )
 
-ggsave("Exp1_2_combined/output/regression/plots/figureS1_payoff_lambda.pdf",
+ggsave("Exp1_2_combined/Output/regression/plots/figureS1_payoff_lambda.pdf",
        p_s1, width = 5, height = 4)

@@ -31,7 +31,7 @@ fit_card <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_card, "Exp4B/output/regression/fit_card.rds")
+saveRDS(fit_card, "Exp4B/Output/regression/fit_card.rds")
 
 fit_key <-
   brm(
@@ -46,7 +46,7 @@ fit_key <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_key, "Exp4B/output/regression/fit_key.rds")
+saveRDS(fit_key, "Exp4B/Output/regression/fit_key.rds")
 
 posterior_theme <- theme(
   axis.title.y = element_blank(),
@@ -61,7 +61,7 @@ p_5f_cond <- plot(conditional_effects(fit_card), plot = FALSE)[[1]] +
   scale_x_discrete(labels = c("0" = "Unrewarded", "1" = "Rewarded")) +
   labs(x = "Previous outcome", y = "P(stay color)") +
   theme_bw()
-ggsave("Exp4B/output/regression/plots/figure5F_conditional.pdf",
+ggsave("Exp4B/Output/regression/plots/figure5F_conditional.pdf",
        p_5f_cond, width = 4, height = 4)
 
 draws_5f <- as.numeric(as_draws_df(fit_card)$b_reward_oneback1)
@@ -77,7 +77,7 @@ p_5f_post <- ggplot(data.frame(x = draws_5f), aes(x = x)) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
   theme_bw() +
   posterior_theme
-ggsave("Exp4B/output/regression/plots/figure5F_posterior.pdf",
+ggsave("Exp4B/Output/regression/plots/figure5F_posterior.pdf",
        p_5f_post, width = 5, height = 4)
 
 # Figure 5G - stay key ----------------------------------------------------
@@ -86,7 +86,7 @@ p_5g_cond <- plot(conditional_effects(fit_key), plot = FALSE)[[1]] +
   scale_x_discrete(labels = c("0" = "Unrewarded", "1" = "Rewarded")) +
   labs(x = "Previous outcome", y = "P(stay location)") +
   theme_bw()
-ggsave("Exp4B/output/regression/plots/figure5G_conditional.pdf",
+ggsave("Exp4B/Output/regression/plots/figure5G_conditional.pdf",
        p_5g_cond, width = 4, height = 4)
 
 draws_5g <- as.numeric(as_draws_df(fit_key)$b_reward_oneback1)
@@ -102,5 +102,5 @@ p_5g_post <- ggplot(data.frame(x = draws_5g), aes(x = x)) +
   labs(x = expression(beta["Previous outcome"]), y = NULL) +
   theme_bw() +
   posterior_theme
-ggsave("Exp4B/output/regression/plots/figure5G_posterior.pdf",
+ggsave("Exp4B/Output/regression/plots/figure5G_posterior.pdf",
        p_5g_post, width = 5, height = 4)

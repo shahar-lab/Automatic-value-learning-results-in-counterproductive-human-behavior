@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(cmdstanr)
 library(brms)
@@ -7,7 +7,7 @@ library(bayestestR)
 library(ggdist)
 library(ggplot2)
 
-fit_exp2 <- readRDS("Exp2/output/computational_model/modelfit_empirical_exp2.rds")
+fit_exp2 <- readRDS("Exp2/Output/computational_model/modelfit_empirical_exp2.rds")
 
 # Intraclass correlation --------------------------------------------------
 
@@ -32,7 +32,7 @@ fit_icc <-
     backend = "cmdstanr"
   )
 
-saveRDS(fit_icc, "Exp2/output/computational_model/fit_icc.rds")
+saveRDS(fit_icc, "Exp2/Output/computational_model/fit_icc.rds")
 
 post <- as_draws_df(fit_icc) %>%
   mutate(
@@ -66,4 +66,4 @@ p_6a <- ggplot(post, aes(x = ICC)) +
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
   )
-ggsave("Exp2/output/computational_model/plots/figure6A.pdf", p_6a, width = 6, height = 3)
+ggsave("Exp2/Output/computational_model/plots/figure6A.pdf", p_6a, width = 6, height = 3)

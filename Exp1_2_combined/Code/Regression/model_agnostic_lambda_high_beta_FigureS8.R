@@ -1,4 +1,4 @@
-
+﻿
 rm(list = ls())
 library(brms)
 library(cmdstanr)
@@ -8,6 +8,7 @@ library(ggplot2)
 df_combined <- read.csv("Exp1_2_combined/Data/df_combined_exp1_2.csv")
 
 df_summary <- df_combined %>%
+  filter(reoffer_unch == F, reoffer_ch == F) %>%
   group_by(subject) %>%
   summarise(
     lambda        = mean(lambda, na.rm = TRUE),
@@ -32,7 +33,7 @@ m_oil_high_beta <-
     backend = "cmdstanr"
   )
 
-saveRDS(m_oil_high_beta, "Exp1_2_combined/output/regression/m_oil_high_beta.rds")
+saveRDS(m_oil_high_beta, "Exp1_2_combined/Output/regression/m_oil_high_beta.rds")
 
 # Figure S8 ---------------------------------------------------------------
 
@@ -46,5 +47,5 @@ p_s8 <- plot(c_eff, plot = FALSE)[[1]] +
   ) +
   theme_bw()
 
-ggsave("Exp1_2_combined/output/regression/plots/figureS8_oil_high_beta.pdf",
+ggsave("Exp1_2_combined/Output/regression/plots/figureS8_oil_high_beta.pdf",
        p_s8, width = 5, height = 4)
