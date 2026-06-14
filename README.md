@@ -1,6 +1,6 @@
 # Automatic value learning results in counterproductive human behavior
 
-This repository contains the code and data needed to reproduce the analyses and plots reported in the paper. It includes Stan models for computational model fitting, brms regression analyses, and model comparison with LOO-CV. Outputs are saved under each experiment's `output/` folder. All figures can be reproduced as PDF by running the scripts.
+This repository contains the code and data needed to reproduce the analyses and plots reported in the paper. It includes Stan models for computational model fitting, brms regression analyses, and model comparison with LOO-CV. Outputs are saved under each experiment's `Output/` folder. All figures can be reproduced as PDFs by running the scripts.
 
 Preprint: https://osf.io/preprints/psyarxiv/73d5t_v3
 
